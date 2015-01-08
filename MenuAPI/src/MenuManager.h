@@ -13,7 +13,7 @@ public:
 
     void addMenu(Menu);
 private:
-    vector <ofTexture*> textures;
+    vector <ofTexture> textures;
     vector <std::string> textureStrings;
     vector <Menu> Menus;
 };
