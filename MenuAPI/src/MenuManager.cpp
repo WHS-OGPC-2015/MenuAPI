@@ -9,12 +9,17 @@ void MenuManager::addTexture(std::string name, string::string fileName)
 
 }
 
-ofTexture& getTexturePointer(std::string tex)
+ofTexture& MenuManager::getTexturePointer(std::string tex)
 {
-    return
+    //return
 }
 
-ofTexture& getTexturePointer(int num)
+ofTexture& MenuManager::getTexturePointer(int num)
 {
     return textures[num];
+}
+
+void MenuManager::addMenu(Menu m)
+{
+    Menus.push_back(m);
 }

@@ -18,5 +18,7 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+
+        enum states {MAIN_MENU, GAME_PLAY, GAME_LOAD};
+
 };

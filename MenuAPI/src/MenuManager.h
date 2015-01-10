@@ -11,7 +11,7 @@ public:
     ofTexture& getTexturePointer(int tex);//retrieve texture reference my position in array
 
 
-    void addMenu(Menu);
+    void addMenu(Menu);//add Menu to menu array
 private:
     vector <ofTexture> textures;
     vector <std::string> textureStrings;
