@@ -120,10 +120,14 @@
 		</Unit>
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Menu.h" />
+		<Unit filename="src/MenuEntity.cpp" />
+		<Unit filename="src/MenuEntity.h" />
 		<Unit filename="src/MenuManager.cpp" />
 		<Unit filename="src/MenuManager.h" />
-		<Unit filename="src/MenuObject.cpp" />
-		<Unit filename="src/MenuObject.h" />
+		<Unit filename="src/SimpleButton.cpp" />
+		<Unit filename="src/SimpleButton.h" />
+		<Unit filename="src/customMaths.cpp" />
+		<Unit filename="src/customMaths.h" />
 		<Unit filename="src/main.cpp">
 			<Option virtualFolder="src" />
 		</Unit>
