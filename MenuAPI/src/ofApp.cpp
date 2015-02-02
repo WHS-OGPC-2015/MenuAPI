@@ -8,16 +8,25 @@ void ofApp::setup(){
     myManager->addTexture("unclicked", "notclicked.png");
     myManager->addFont("simpleFont", "mySimpleFont.ttf", 36);
     aButton = new SimpleButton(ofVec2f(400, 400),
-                         myManager->getTexturePointer("unclicked"),
-                         myManager->getTexturePointer("clicked"),
-                         myManager->getFontPointer("simpleFont"));
-    myMenu.addEntity(aButton);
+                myManager->getTexturePointer("unclicked"),
+                myManager->getTexturePointer("clicked"),
+                myManager->getFontPointer("simpleFont"));
+
+    myMenu.addEntity(*aButton);
     myManager->addMenu(myMenu, "theMenu");
+    pressed = false;
+    clicked = false;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     myManager->update(mousePos, clicked);
+    if(pressed != true)
+    {
+            clicked = false;
+    }
+
+
 }
 
 //--------------------------------------------------------------
@@ -38,6 +47,8 @@ void ofApp::keyReleased(int key){
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
     mousePos = ofVec2f(x, y);
+
+
 }
 
 //--------------------------------------------------------------
@@ -47,12 +58,19 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    clicked = true;
+            pressed =true;
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    clicked = false;
+            if(pressed == true)
+            {
+                pressed = false;
+                clicked = true;
+            }
+
+
 }
 
 //--------------------------------------------------------------

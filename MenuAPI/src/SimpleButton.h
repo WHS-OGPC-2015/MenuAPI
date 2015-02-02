@@ -14,6 +14,7 @@ public:
 
     void update(ofVec2f& mousePos, bool& clicked);
     void draw();
+    void update();
 
 private:
     ofTexture* normal; //pointer to default texture
@@ -25,5 +26,5 @@ private:
     ofVec2f textureTLPos;//location of current top left corner of the texture
     ofVec2f textureBRPos;//location of current bottom right corner of the Texture
     bool nowClicked;
-    SimpleButton *aButton;
+
 };

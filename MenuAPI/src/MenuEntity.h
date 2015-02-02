@@ -4,17 +4,10 @@
 class MenuEntity
 {
 public:
-    MenuEntity();//initialize object with position
 
-    ofVec2f getLocation();//get current location
-    void setLocation(ofVec2f);//set location relative to menu center
-
-    void draw();
-    void update();
-    void update(ofVec2f&, bool&);
-
+    virtual void draw() = 0;
+    virtual void update() = 0;
+    virtual void update(ofVec2f&, bool&) = 0;
     bool requiresMouseData;
-protected:
-    ofVec2f location;//location for object relative to menu center position
 
 };

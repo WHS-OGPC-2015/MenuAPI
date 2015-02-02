@@ -41,7 +41,6 @@ void Menu::draw()
 {
     for(int aa = 0; aa<entities.size(); aa++)
     {
-         std::cout << "Ima here 5" << std::endl;
         entities[aa]->draw();
     }
 }

@@ -27,6 +27,8 @@ class ofApp : public ofBaseApp{
         MenuManager* myManager;
 
         ofVec2f mousePos;
+        bool pressed;
         bool clicked;
+        MenuEntity *aButton;
 
 };
