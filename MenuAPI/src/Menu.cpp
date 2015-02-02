@@ -11,29 +11,37 @@ void Menu::setLocation(ofVec2f loc)
     location = loc;
 }
 
-ofVec2f Menu::getLocation();
+ofVec2f Menu::getLocation()
 {
     return location;
 }
 
-void addEntity(MenuEntity& ent)
+void Menu::addEntity(MenuEntity& ent)
 {
-    MenuEntity* tmp = ent;
-    entities.push_back(Menu);
+    entities.push_back(&ent);
 }
 
-void Menu::update()
+void Menu::update(ofVec2f& mousePos, bool& clicked)
 {
-    for(int aa = 0; aa<entities.size(); aa++)
+    for(int aa = 0; aa<entities.size(); aa++)//updates all of the menus entities
     {
-        entities[aa].update();
+        if(entities[aa]->requiresMouseData)//if the entity needs mouseinput call that update fxn
+        {
+            entities[aa]->update(mousePos, clicked);
+        }
+        else//otherwise call the other update
+        {
+            entities[aa]->update();
+        }
+
     }
 }
-
+//should add vbo support here or in MenuManager on a permenu basis
 void Menu::draw()
 {
     for(int aa = 0; aa<entities.size(); aa++)
     {
-        entities[aa].draw();
+         std::cout << "Ima here 5" << std::endl;
+        entities[aa]->draw();
     }
 }

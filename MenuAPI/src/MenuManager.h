@@ -1,7 +1,8 @@
 #pragma once
 
-#include "ofMain.h
+#include "ofMain.h"
 #include "Menu.h"
+#include <Map>
 
 class MenuManager
 {
@@ -10,10 +11,19 @@ public:
     ofTexture& getTexturePointer(std::string tex);//retrieve texture reference by name
     ofTexture& getTexturePointer(int tex);//retrieve texture reference my position in array
 
+    void addFont(std::string name, std::string fileName, int fontSize);//add TrueTypeFont to array by filename
+    ofTrueTypeFont& getFontPointer(std::string name);//retrieve font by reference by name
+    ofTrueTypeFont& getFontPointer(int pos);//retrieve font reference by position in array
 
-    void addMenu(Menu);//add Menu to menu array
+    void addMenu(Menu, std::string name);//add Menu to menu array
+
+    void update(ofVec2f&, bool&);//updates menus
+    void draw();//draws menus
 private:
-    vector <ofTexture> textures;
-    vector <std::string> textureStrings;
-    vector <Menu> Menus;
+    std::vector <ofTexture> textures;//holds textures
+    std::map <std::string, int> textureNames;//holds strings mapped to spots in the textures array
+    std::vector <Menu> menus;//holds menus
+    std::map <std::string, int> menuNames;//holds string mapped to spots in string array
+    std::vector <ofTrueTypeFont> fonts;//holds fonts
+    std::map <std::string, int> fontNames;//holds strings mapped to spots in fonts array
 };

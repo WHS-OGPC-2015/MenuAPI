@@ -1,7 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
-
+#include "MenuManager.h"
+#include "MenuEntity.h"
+#include "Menu.h"
+#include "SimpleButton.h"
 class ofApp : public ofBaseApp{
 
 	public:
@@ -20,5 +23,10 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
         enum states {MAIN_MENU, GAME_PLAY, GAME_LOAD};
+
+        MenuManager* myManager;
+
+        ofVec2f mousePos;
+        bool clicked;
 
 };

@@ -4,14 +4,26 @@
 class SimpleButton : public MenuEntity //child of MenuEntity class
 {
 public:
-    SimpleButton(ofVec2f loc, ofTexture* norm, ofTexture* hov, ofTrueTypeFont* f);//initialize button with position and textures
+    SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& hov, ofTrueTypeFont& f);//initialize button with position and textures
 
-    void setButtonText();
-    void update(ofVec2f& mousePos);
+    void setPosition(ofVec2f);
+    ofVec2f getPosition();
+
+    void setButtonTextString(std::string);
+    std::string getButtonTextString();
+
+    void update(ofVec2f& mousePos, bool& clicked);
     void draw();
+
 private:
     ofTexture* normal; //pointer to default texture
-    ofTexture* hover; //pointer to texture used on mouse hover
+    ofTexture* clicked; //pointer to texture used on mouse click
     ofTrueTypeFont* font; //pointer to font for button text
     std::string text;//text to draw
+
+    ofVec2f position;//position of the buttons center
+    ofVec2f textureTLPos;//location of current top left corner of the texture
+    ofVec2f textureBRPos;//location of current bottom right corner of the Texture
+    bool nowClicked;
+    SimpleButton *aButton;
 };

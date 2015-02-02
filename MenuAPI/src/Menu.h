@@ -1,6 +1,6 @@
 #pragma once
 #include "ofMain.h"
-#include "MenuObject.h"
+#include "MenuEntity.h"
 class Menu
 {
 public:
@@ -10,7 +10,7 @@ public:
 
     void addEntity(MenuEntity&);
 
-    void update();
+    void update(ofVec2f& mousePos, bool& clicked);
     void draw();
 
 
