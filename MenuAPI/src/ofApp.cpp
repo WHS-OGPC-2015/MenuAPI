@@ -7,13 +7,21 @@ void ofApp::setup(){
     myManager->addTexture("clicked", "clicked.png");
     myManager->addTexture("unclicked", "notclicked.png");
     myManager->addFont("simpleFont", "mySimpleFont.ttf", 36);
+    myManager->addTexture("button1", "button1.png");
+    myManager->addTexture("button2", "button2.png");
     aButton = new SimpleButton(ofVec2f(400, 400),
                 myManager->getTexturePointer("unclicked"),
                 myManager->getTexturePointer("clicked"),
-                myManager->getFontPointer("simpleFont"));
+                myManager->getFontPointer("simpleFont"),
+                               "wut");
 
     myMenu.addEntity(*aButton);
+    myButton = new SimpleButton(ofVec2f(400, 600),
+            myManager->getTexturePointer("button1"),
+            myManager->getTexturePointer("button2"));
+    myMenu.addEntity(*myButton);
     myManager->addMenu(myMenu, "theMenu");
+
     pressed = false;
     clicked = false;
 }

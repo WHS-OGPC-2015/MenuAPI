@@ -1,6 +1,6 @@
 #include "SimpleButton.h"
 
- SimpleButton::SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& click, ofTrueTypeFont& f)
+ SimpleButton::SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& click, ofTrueTypeFont& f, std::string t)
 {
 
     position = loc;
@@ -9,7 +9,21 @@
     font = &f;
     requiresMouseData = true;//this class will need data about the mouse to function
     nowClicked = false;
-    text = "SWAG";
+    text = t;
+
+}
+
+ SimpleButton::SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& click)
+{
+
+    position = loc;
+    normal = &norm;
+    clicked = &click;
+    font = NULL;
+    requiresMouseData = true;//this class will need data about the mouse to function
+    nowClicked = false;
+    text = "";
+
 }
 
 void SimpleButton::setButtonTextString(std::string newString)
@@ -64,9 +78,10 @@ void SimpleButton::draw()
         textureBRPos = ofVec2f((textureTLPos.x+(normal->getWidth())), (textureTLPos.y+(normal->getHeight())));
         normal->draw(textureTLPos);
     }
-    font->drawString(text, textureTLPos.x, textureTLPos.y);
-    ofCircle(textureBRPos.x, textureBRPos.y, 20);
-    ofCircle(textureTLPos.x, textureTLPos.y, 20);
+    if(font != NULL)
+    {
+        font->drawString(text, textureTLPos.x+((normal->getWidth()-(font->stringWidth(text)))/2), textureTLPos.y+((normal->getHeight()-(font->stringHeight(text))/2);
+    }
 
 }
 

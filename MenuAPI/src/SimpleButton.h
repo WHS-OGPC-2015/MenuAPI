@@ -4,7 +4,8 @@
 class SimpleButton : public MenuEntity //child of MenuEntity class
 {
 public:
-    SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& hov, ofTrueTypeFont& f);//initialize button with position and textures
+    SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& hov, ofTrueTypeFont& f, std::string text);//initialize button with position and textures and text
+    SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& hov);//initialize button with position and textures without text
 
     void setPosition(ofVec2f);
     ofVec2f getPosition();
