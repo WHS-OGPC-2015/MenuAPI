@@ -2,25 +2,35 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    myManager = new MenuManager;
-    Menu myMenu(ofVec2f(400, 400));
+    myManager = new MenuManager;//create new instance of MenuManager
+    Menu myMenu(ofVec2f(400, 400));//create menu to display
+
+    //add all necessary textures
     myManager->addTexture("clicked", "clicked.png");
     myManager->addTexture("unclicked", "notclicked.png");
     myManager->addFont("simpleFont", "mySimpleFont.ttf", 36);
     myManager->addTexture("button1", "button1.png");
     myManager->addTexture("button2", "button2.png");
+
+    //
     aButton = new SimpleButton(ofVec2f(400, 400),
                 myManager->getTexturePointer("unclicked"),
                 myManager->getTexturePointer("clicked"),
                 myManager->getFontPointer("simpleFont"),
                                "wut");
+    myMenu.addEntity(*aButton);//add button to the menu
 
-    myMenu.addEntity(*aButton);
-    myButton = new SimpleButton(ofVec2f(400, 600),
-            myManager->getTexturePointer("button1"),
-            myManager->getTexturePointer("button2"));
-    myMenu.addEntity(*myButton);
-    myManager->addMenu(myMenu, "theMenu");
+    myButton = new SimpleButton(ofVec2f(600, 400),
+                myManager->getTexturePointer("button1"),
+                myManager->getTexturePointer("button2"),
+                myManager->getFontPointer("simpleFont"),
+                                "swig");
+    myMenu.addEntity(*myButton);//add button to the menu
+
+
+
+
+    myManager->addMenu(myMenu, "theMenu");//add menu to the manager
 
     pressed = false;
     clicked = false;

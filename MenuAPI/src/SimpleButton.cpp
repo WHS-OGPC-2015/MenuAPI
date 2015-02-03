@@ -19,7 +19,7 @@
     position = loc;
     normal = &norm;
     clicked = &click;
-    font = NULL;
+    font = NULL;//set font pointer to NULL if there is no text
     requiresMouseData = true;//this class will need data about the mouse to function
     nowClicked = false;
     text = "";
@@ -67,6 +67,7 @@ void SimpleButton::draw()
     //of the mouse collision logic in update()
     if(nowClicked == true)//if the button has been clicked draw that texture
     {
+        //reset BR and TL corner positions for collision
         textureTLPos = ofVec2f((position.x-(clicked->getWidth()/2)), (position.y-(clicked->getHeight()/2)));
         textureBRPos = ofVec2f((textureTLPos.x+(clicked->getWidth())), (textureTLPos.y+(clicked->getHeight())));
         clicked->draw(textureTLPos);
@@ -74,13 +75,15 @@ void SimpleButton::draw()
     }
     else//otherwise draw the non-clicked texture
     {
+        //reset BR and TL corner positions for collision
         textureTLPos = ofVec2f((position.x-(normal->getWidth()/2)), (position.y-(normal->getHeight()/2)));
         textureBRPos = ofVec2f((textureTLPos.x+(normal->getWidth())), (textureTLPos.y+(normal->getHeight())));
         normal->draw(textureTLPos);
     }
     if(font != NULL)
     {
-        font->drawString(text, textureTLPos.x+((normal->getWidth()-(font->stringWidth(text)))/2), textureTLPos.y+((normal->getHeight()-(font->stringHeight(text))/2);
+        //center the text
+        font->drawString(text, textureTLPos.x+((normal->getWidth()-(font->stringWidth(text)))/2), textureTLPos.y+((normal->getHeight()-(font->stringHeight(text)))/2));
     }
 
 }

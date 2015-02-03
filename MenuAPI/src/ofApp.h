@@ -1,10 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
-#include "MenuManager.h"
-#include "MenuEntity.h"
-#include "Menu.h"
-#include "SimpleButton.h"
+#include "MenuInclude.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -24,11 +22,14 @@ class ofApp : public ofBaseApp{
 
         enum states {MAIN_MENU, GAME_PLAY, GAME_LOAD};
 
+        //manages all textures and fonts for buttons in addition to menu activity
         MenuManager* myManager;
 
         ofVec2f mousePos;
-        bool pressed;
-        bool clicked;
+        bool pressed;//true if mouse button has been pressed down
+        bool clicked;//true if mouse button has been pushed down then released
+
         MenuEntity *aButton;
+        MenuEntity *myButton;
 
 };
