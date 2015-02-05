@@ -31,5 +31,6 @@ class ofApp : public ofBaseApp{
 
         MenuEntity *aButton;
         MenuEntity *myButton;
+        MenuEntity *anotherButton;
 
 };

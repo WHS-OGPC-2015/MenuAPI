@@ -7,15 +7,19 @@ public:
     SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& hov, ofTrueTypeFont& f, std::string text);//initialize button with position and textures and text
     SimpleButton(ofVec2f loc, ofTexture& norm, ofTexture& hov);//initialize button with position and textures without text
 
+    //!!!!!!functions not declared in MenuEntity but declared here are mostly totally non-usable!!!!!!
     void setPosition(ofVec2f);
     ofVec2f getPosition();
 
     void setButtonTextString(std::string);
     std::string getButtonTextString();
+    //!!!!!!!!
 
     void update(ofVec2f& mousePos, bool& clicked);
     void draw();
     void update();
+
+    bool getEventData();
 
 private:
     ofTexture* normal; //pointer to default texture
@@ -26,6 +30,7 @@ private:
     ofVec2f position;//position of the buttons center
     ofVec2f textureTLPos;//location of current top left corner of the texture
     ofVec2f textureBRPos;//location of current bottom right corner of the Texture
-    bool nowClicked;
+    bool nowClicked;//true if the button is currently in its clicked state
+
 
 };

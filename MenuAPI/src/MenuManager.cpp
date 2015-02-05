@@ -43,11 +43,20 @@ void MenuManager::addMenu(Menu m, std::string name)
     menuNames[name] = (menus.size()-1);//add menu name to menuNames map
 }
 
+Menu& MenuManager::getMenuReferenceByName(std::string name)
+{
+    Menu &r = menus[menuNames[name]];
+    return r;
+}
+
 void MenuManager::update(ofVec2f& mousePos, bool& clicked)
 {
     for(int aa = 0; aa < menus.size(); aa++)//cycle through all menus and call their update functions
     {
-        menus[aa].update( mousePos, clicked);
+        if(menus[aa].isActive())//if the menu is active update it
+        {
+            menus[aa].update( mousePos, clicked);
+        }
     }
 }
 
@@ -55,7 +64,10 @@ void MenuManager::draw()
 {
     for(int aa = 0; aa < menus.size(); aa++)//cycle through all menus and call their draw functions
     {
-        menus[aa].draw();
+        if(menus[aa].isActive())//if the menu is active draw it
+        {
+            menus[aa].draw();
+        }
     }
 }
 

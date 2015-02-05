@@ -10,4 +10,8 @@ public:
     virtual void update(ofVec2f&, bool&) = 0;
     bool requiresMouseData;
 
+
+    virtual bool getEventData()=0;
+    virtual int getEventData()=0;
+
 };

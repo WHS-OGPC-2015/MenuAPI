@@ -92,3 +92,15 @@ void SimpleButton::update()
 {
     //this is just here so the compiler doesn't complain when calling update(void) in menu
 }
+
+bool SimpleButton::getEventData()
+{
+    if(nowClicked == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
