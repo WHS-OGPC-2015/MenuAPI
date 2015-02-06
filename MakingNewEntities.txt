@@ -1,0 +1,32 @@
+to make a new entity follow this basic template
+
+at this point adding additional functions will not work because they cannot be called
+
+feel free to add them anyway in case i can fix that glitch
+
+
+class ENTITY_TYPE
+{
+	//constrctor
+
+	void update();
+	void update(ofVec2f mousePos, bool clicked);
+
+	void draw();
+
+	bool getEventDataBool();
+	int getEventDataInt();
+
+private:
+	ofTexture *myTexture;
+
+}
+
+
+make sure to include all of these function or there WILL be an error
+
+just define them to whatever and make extra variables private and stuff
+
+
+textures should be declared as pointers
+
