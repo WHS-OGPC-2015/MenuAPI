@@ -1,6 +1,6 @@
 #pragma once
 #include "MenuEntity.h"
-#include "customMaths.h"
+
 class SimpleButton : public MenuEntity //child of MenuEntity class
 {
 public:
@@ -19,7 +19,8 @@ public:
     void draw();
     void update();
 
-    bool getEventData();
+    bool getEventDataBool();//return nowClicked value
+    int getEventDataInt();
 
 private:
     ofTexture* normal; //pointer to default texture

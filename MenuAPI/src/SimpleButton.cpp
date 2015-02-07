@@ -50,7 +50,6 @@ void SimpleButton::update(ofVec2f& mousePos, bool& clicked)
            mousePos.x > textureBRPos.x ||
            mousePos.y > textureBRPos.y   )
         {
-            std::cout << mousePos << std::endl;
         }
         else//if the points not outside its inside
         {
@@ -93,7 +92,7 @@ void SimpleButton::update()
     //this is just here so the compiler doesn't complain when calling update(void) in menu
 }
 
-bool SimpleButton::getEventData()
+bool SimpleButton::getEventDataBool()
 {
     if(nowClicked == true)
     {
@@ -103,4 +102,9 @@ bool SimpleButton::getEventData()
     {
         return false;
     }
+}
+
+int SimpleButton::getEventDataInt()
+{
+    //here for abstract parent
 }

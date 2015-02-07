@@ -122,12 +122,13 @@
 		<Unit filename="src/Menu.h" />
 		<Unit filename="src/MenuEntity.cpp" />
 		<Unit filename="src/MenuEntity.h" />
+		<Unit filename="src/MenuInclude.h" />
 		<Unit filename="src/MenuManager.cpp" />
 		<Unit filename="src/MenuManager.h" />
 		<Unit filename="src/SimpleButton.cpp" />
 		<Unit filename="src/SimpleButton.h" />
-		<Unit filename="src/customMaths.cpp" />
-		<Unit filename="src/customMaths.h" />
+		<Unit filename="src/Slider.cpp" />
+		<Unit filename="src/Slider.h" />
 		<Unit filename="src/main.cpp">
 			<Option virtualFolder="src" />
 		</Unit>

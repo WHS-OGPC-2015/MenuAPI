@@ -29,8 +29,6 @@ class ofApp : public ofBaseApp{
         bool pressed;//true if mouse button has been pressed down
         bool clicked;//true if mouse button has been pushed down then released
 
-        MenuEntity *aButton;
-        MenuEntity *myButton;
-        MenuEntity *anotherButton;
+
 
 };

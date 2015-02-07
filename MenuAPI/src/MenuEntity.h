@@ -11,7 +11,7 @@ public:
     bool requiresMouseData;
 
 
-    virtual bool getEventData()=0;
-    virtual int getEventData()=0;
+    virtual bool getEventDataBool()=0;
+    virtual int getEventDataInt()=0;
 
 };

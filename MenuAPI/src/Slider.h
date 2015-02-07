@@ -1,12 +1,15 @@
 #pragma once
 #include "ofMain.h"
+#include "MenuEntity.h"
 
-class Slider
+class Slider : public MenuEntity
 {
-    Slider();
+public:
 
-    bool getEventData();//so that the class is not abstract
-    int getEventData();//returns slider value
+    Slider(ofVec2f position, ofTexture& bg, ofTexture& slider, int M, int m, int start);
+
+    bool getEventDataBool();//so that the class is not abstract
+    int getEventDataInt();//returns slider value
 
     void draw();
     void update(ofVec2f&, bool&);
