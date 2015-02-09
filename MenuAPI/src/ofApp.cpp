@@ -1,5 +1,5 @@
 #include "ofApp.h"
-
+#include <sstream>
 //--------------------------------------------------------------
 void ofApp::setup(){
     MenuEntity *aButton;
@@ -12,7 +12,7 @@ void ofApp::setup(){
     //add all necessary textures
     myManager->addTexture("clicked", "clicked.png");
     myManager->addTexture("unclicked", "notclicked.png");
-    myManager->addFont("simpleFont", "mySimpleFont.ttf", 36);
+    myManager->addFont("simpleFont", "Horror.ttf", 12);
     myManager->addTexture("button1", "button1.png");
     myManager->addTexture("button2", "button2.png");
     myManager->addTexture("sliderbg", "sliderbg.png");
@@ -48,6 +48,7 @@ void ofApp::setup(){
 
     pressed = false;
     clicked = false;
+    CHILD = myManager->getMenuReferenceByName("toggleable").getPointerToChildByName<SimpleButton>("toggled");
 }
 
 //--------------------------------------------------------------
@@ -67,7 +68,12 @@ void ofApp::update(){
     {
         myManager->getMenuReferenceByName("toggleable").setActive();
     }
-    std::cout << myManager->getMenuReferenceByName("toggleable").getEntityPointer("slider1")->getEventDataInt() << std::endl;
+    int val = myManager->getMenuReferenceByName("toggleable").getEntityPointer("slider1")->getEventDataInt();
+    ostringstream ss;
+    ss << val;
+
+    CHILD->setButtonTextString(ss.str());
+
 
 
 
@@ -98,7 +104,7 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    mousePos = ofVec2f(x, y);
 }
 
 //--------------------------------------------------------------

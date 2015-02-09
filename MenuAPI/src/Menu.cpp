@@ -74,3 +74,7 @@ MenuEntity* Menu::getEntityPointer(std::string name)
 {
     return entities[entityNames[name]];
 }
+
+//template<class C>
+
+

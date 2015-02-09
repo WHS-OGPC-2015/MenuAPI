@@ -24,7 +24,7 @@ class ofApp : public ofBaseApp{
 
         //manages all textures and fonts for buttons in addition to menu activity
         MenuManager* myManager;
-
+        SimpleButton* CHILD;
         ofVec2f mousePos;
         bool pressed;//true if mouse button has been pressed down
         bool clicked;//true if mouse button has been pushed down then released

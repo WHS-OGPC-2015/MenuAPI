@@ -12,12 +12,23 @@ public:
     MenuEntity* getEntityPointer(int);//get pointer to MenuEntity by its indice
     MenuEntity* getEntityPointer(std::string);//get pointer to MenuEntity by its name
 
+    template<class C>//C is child class
+    C* getPointerToChildByName(std::string name)
+    {
+        C* tmpChild = (C *) &*(entities[entityNames[name]]);
+        return tmpChild;
+    }
+
+
+
     void update(ofVec2f& mousePos, bool& clicked);
     void draw();
 
     void setActive();//set menu to be drawn
     void setInactive();//set menu to not be drawn
     bool isActive();//returns value of active
+
+
 
 private:
     ofVec2f location;//center location
