@@ -11,6 +11,7 @@
 //include menuEntity child classes
 #include "SimpleButton.h"
 #include "Slider.h"
+#include "MenuBackground.h"
 
 
 

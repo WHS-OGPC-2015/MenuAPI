@@ -5,6 +5,7 @@ void ofApp::setup(){
     MenuEntity *aButton;
     MenuEntity *myButton;
     MenuEntity *anotherButton;
+    MenuEntity *bg;
     myManager = new MenuManager;//create new instance of MenuManager
     Menu myMenu(ofVec2f(200, 200));//create menu to display
     Menu myToggle(ofVec2f(600, 600));
@@ -12,18 +13,22 @@ void ofApp::setup(){
     //add all necessary textures
     myManager->addTexture("clicked", "clicked.png");
     myManager->addTexture("unclicked", "notclicked.png");
-    myManager->addFont("simpleFont", "Horror.ttf", 12);
+    myManager->addFont("simpleFont", "Horror.ttf", 36);
     myManager->addTexture("button1", "button1.png");
     myManager->addTexture("button2", "button2.png");
     myManager->addTexture("sliderbg", "sliderbg.png");
     myManager->addTexture("sliderThing", "sliderThing.png");
+    myManager->addTexture("bg", "MenuBackG.png");
+    myManager->addTexture("blood", "Blood.png");
+    myManager->addTexture("guy", "GUY.png");
 
     //create new button with textures n stuff
     aButton = new SimpleButton(ofVec2f(200, 200),
-                myManager->getTexturePointer("unclicked"),
-                myManager->getTexturePointer("clicked"),
+                myManager->getTexturePointer("guy"),
+                myManager->getTexturePointer("blood"),
                 myManager->getFontPointer("simpleFont"),
-                               "HI");
+                               "cole is a dyke");
+
     myToggle.addEntity(*aButton, "toggled");//add button to the menu
 
     myButton = new SimpleButton(ofVec2f(600, 600),
@@ -37,6 +42,9 @@ void ofApp::setup(){
 //                    myManager->getTexturePointer("button1"),
 //                    myManager->getTexturePointer("clicked"));
 //    myToggle.addEntity(*anotherButton);
+//    bg = new MenuBackground(ofVec2f(600, 600),
+//                            myManager->getTexturePointer("bg"));
+//    myToggle.addEntity(*bg, "background");
     anotherButton = new Slider(ofVec2f(300, 300),
                                myManager->getTexturePointer("sliderbg"),
                                myManager->getTexturePointer("sliderThing"),
